@@ -14,7 +14,7 @@ virtualbox
 ### How to run 
 
 ```
-ansible-galaxy install -p roles -r requirements.yaml # Installs required roles
+ansible-galaxy install -r requirements.yml # Installs required roles
 vagrant up --no-provision                            # Creates VMs
 vagrant provision                                    # Provisions all dev-nodes when they are up
 ```
