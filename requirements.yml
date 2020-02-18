@@ -3,6 +3,6 @@
 # With the collection name, version, and source options
 
 - src: https://github.com/paoven/ansible-docker/
-  version: v1.10.2
+  version: v1.10.3
   name: paoven.docker
 
