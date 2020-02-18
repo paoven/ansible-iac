@@ -1,0 +1,11 @@
+---
+
+docker__edition: "ce"
+docker__channel: ["stable"]
+docker__yum_version: "19.03.5"
+docker__state: "present"
+docker__compose_version: "1.25.3"
+docker__default_daemon_json: |
+  "log-driver": "journald"
+docker__daemon_flags:
+  - "-H unix://"

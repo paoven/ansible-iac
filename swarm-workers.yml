@@ -1,0 +1,7 @@
+---
+
+- hosts: "swarm_workers"
+  become: true
+
+  roles:
+    - role: "paoven.docker"

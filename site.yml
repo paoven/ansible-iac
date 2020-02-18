@@ -1,0 +1,6 @@
+---
+
+# docker.yml
+
+- import_playbook: swarm-masters.yml
+- import_playbook: swarm-workers.yml
