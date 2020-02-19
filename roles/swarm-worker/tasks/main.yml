@@ -1,0 +1,14 @@
+---
+
+- name: Install Docker module deps
+  pip:
+    name: docker
+    executable: pip2
+
+- name: Add node
+  docker_swarm:
+    state: join
+    advertise_addr: "{{ docker_swarm_address }}:{{ docker_swarm_port }}"
+    join_token: "{{ hostvars['swarm-master']['docker_swarm_manager_result']['swarm_facts']['JoinTokens']['Worker'] }}"
+    #remote_addrs: [ "{{ hostvars['swarm-master']['docker_swarm_address'] }}:{{ hostvars['swarm-master']['docker_swarm_port']  }}" ]
+    remote_addrs: [ "{{ hostvars['swarm-master']['ansible_' + docker_swarm_interface]['ipv4']['address'] }}:2377" ]

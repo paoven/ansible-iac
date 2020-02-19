@@ -1,0 +1,12 @@
+---
+
+- name: Install Docker module deps
+  pip:
+    name: docker
+    executable: pip2
+
+- name: "initialize swarm"
+  docker_swarm:
+    state: present
+    advertise_addr: "{{ docker_swarm_address }}:{{ docker_swarm_port }}"
+  register: docker_swarm_manager_result

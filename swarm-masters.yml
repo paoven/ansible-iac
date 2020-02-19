@@ -5,3 +5,5 @@
 
   roles:
     - role: "paoven.docker"
+    - role: "swarm-manager"
+
