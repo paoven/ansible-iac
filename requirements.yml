@@ -5,6 +5,3 @@
 - src: https://github.com/paoven/ansible-docker/
   version: v1.10.3
   name: paoven.docker
-
-- name: atosatto.docker-swarm
-  version: v2.1.0
