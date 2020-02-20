@@ -12,14 +12,14 @@ Vagrant.configure('2') do |config|
     config.vm.define short_name do |host|
       host.vm.network 'private_network', ip: ip
       host.vm.hostname = "#{short_name}"
-      
-      
-      host.vm.provision "ansible" do |ansible|
-        ansible.limit = 'dev_docker_nodes'
-        ansible.inventory_path = 'inventory/hosts.ini'
-        ansible.playbook = 'site.yml'
-      end
     end
+  end
+
+        
+  config.vm.provision "ansible" do |ansible|
+    ansible.limit = 'dev_docker_nodes'
+    ansible.inventory_path = 'inventory/hosts.ini'
+    ansible.playbook = 'site.yml'
   end
 
 
