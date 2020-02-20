@@ -1,9 +1,0 @@
----
-
-- hosts: "swarm_masters"
-  become: true
-
-  roles:
-    - role: "paoven.docker"
-    - role: "swarm-manager"
-

@@ -1,4 +1,17 @@
 ---
 
-- import_playbook: swarm-masters.yml
-- import_playbook: swarm-workers.yml
+- hosts: "docker_nodes"
+  become: true
+  roles:
+    - role: "paoven.docker"
+    - role: docker-node
+
+- hosts: "swarm_masters"
+  become: true
+  roles:
+    - role: swarm-manager
+
+- hosts: "swarm_workers"
+  become: true
+  roles:
+    - role: "swarm-worker"
