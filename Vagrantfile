@@ -7,7 +7,7 @@ Vagrant.configure('2') do |config|
   config
   {
     'swarm-worker'   => '192.168.33.11',
-    'swarm-master'    => '192.168.33.10',
+    'swarm-manager'    => '192.168.33.10',
   }.each do |short_name, ip|
     config.vm.define short_name do |host|
       host.vm.network 'private_network', ip: ip

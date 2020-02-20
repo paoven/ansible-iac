@@ -6,7 +6,7 @@
     - role: "paoven.docker"
     - role: docker-node
 
-- hosts: "swarm_masters"
+- hosts: "swarm_managers"
   become: true
   roles:
     - role: swarm-manager

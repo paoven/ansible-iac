@@ -15,4 +15,4 @@
   add_host:
     name: '{{ inventory_hostname }}'
     groups: current_play_managers
-  changed_when: false      
+  changed_when: false
