@@ -10,3 +10,9 @@
     state: present
     advertise_addr: "{{ docker_swarm_address }}:{{ docker_swarm_port }}"
   register: docker_swarm_manager_result
+
+- name: Add manager to group of managers
+  add_host:
+    name: '{{ inventory_hostname }}'
+    groups: current_play_managers
+  changed_when: false      

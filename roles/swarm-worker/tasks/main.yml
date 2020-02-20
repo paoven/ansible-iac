@@ -9,6 +9,6 @@
   docker_swarm:
     state: join
     advertise_addr: "{{ docker_swarm_address }}:{{ docker_swarm_port }}"
-    join_token: "{{ hostvars['swarm-master']['docker_swarm_manager_result']['swarm_facts']['JoinTokens']['Worker'] }}"
+    join_token: "{{ hostvars[groups['current_play_managers'][0]]['docker_swarm_manager_result']['swarm_facts']['JoinTokens']['Worker'] }}"
     #remote_addrs: [ "{{ hostvars['swarm-master']['docker_swarm_address'] }}:{{ hostvars['swarm-master']['docker_swarm_port']  }}" ]
-    remote_addrs: [ "{{ hostvars['swarm-master']['ansible_' + docker_swarm_interface]['ipv4']['address'] }}:2377" ]
+    remote_addrs: [ "{{ hostvars[groups['current_play_managers'][0]]['ansible_' + docker_swarm_interface]['ipv4']['address'] }}:2377" ]
