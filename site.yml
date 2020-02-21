@@ -1,17 +1,21 @@
 ---
 
+
 - hosts: "docker_nodes"
-  become: true
   roles:
-    - role: "paoven.docker"
-    - role: docker-node
+    - role: "secure-docker-daemon"
+      vars:
+        dds_fetch_client_certs: yes
+
+- hosts: "docker_nodes"
+  roles:
+    - role: "docker-daemon"
+    - role: "enable-docker-daemon"
 
 - hosts: "swarm_managers"
-  become: true
   roles:
-    - role: swarm-manager
+    - role: "swarm-manager"
 
 - hosts: "swarm_workers"
-  become: true
   roles:
     - role: "swarm-worker"

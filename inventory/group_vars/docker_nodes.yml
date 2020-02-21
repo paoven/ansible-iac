@@ -1,5 +1,7 @@
 ---
 
+ansible_become: yes
+
 docker__edition: "ce"
 docker__channel: ["stable"]
 docker__yum_version: "19.03.5"
@@ -9,3 +11,15 @@ docker__default_daemon_json: |
   "log-driver": "journald"
 docker__daemon_flags:
   - "-H unix://"
+  - "--tlsverify"
+  - "--tlscacert={{ dds_server_cert_path }}/ca.pem"
+  - "--tlscert={{ dds_server_cert_path }}/server-cert.pem"
+  - "--tlskey={{ dds_server_cert_path }}/server-key.pem"
+  - "-H tcp://0.0.0.0:2376"
+ 
+dds_server_cert_path: "/etc/default/docker"
+dds_restart_docker: no
+dds_install_shell: yes
+dds_host_ip: "{{ hostvars[inventory_hostname]['ansible_' + docker_swarm_interface]['ipv4']['address'] }}"
+dds_host: "{{ inventory_hostname }}"
+fetch_client_cert_path: "~/.docker/{{ inventory_hostname }}/"

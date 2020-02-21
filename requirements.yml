@@ -3,5 +3,9 @@
 # With the collection name, version, and source options
 
 - src: https://github.com/paoven/ansible-docker/
-  version: v1.10.3
-  name: paoven.docker
+  version: v1.10.4
+  name: docker-daemon
+
+- src: https://github.com/paoven/role-secure-docker-daemon
+  version: v0.4
+  name: secure-docker-daemon
